@@ -57,4 +57,22 @@ public class HashMap<K, V> {
         return hash % table.length;
     }
 
+    public int size() {
+        return size;
+    }
+
+    public void remove(K key){
+        int index = getHash(key);
+
+        if(table.index != null){
+            for(Node<K,V> node : table[index]){
+                if(node.key.equals(key)){
+                    table[index].remove(node);
+                    size--;
+                    return ;
+                }
+            }
+        }
+    }
+
 }
